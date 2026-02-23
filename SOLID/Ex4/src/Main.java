@@ -4,7 +4,18 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== Hostel Fee Calculator ===");
         BookingRequest req = new BookingRequest(LegacyRoomTypes.DOUBLE, List.of(AddOn.LAUNDRY, AddOn.MESS));
-        HostelFeeCalculator calc = new HostelFeeCalculator(new FakeBookingRepo());
+        
+        List<PricingComponent> components = List.of(
+            new SingleRoomPricing(),
+            new DoubleRoomPricing(),
+            new TripleRoomPricing(),
+            new DeluxeRoomPricing(),
+            new MessPricing(),
+            new LaundryPricing(),
+            new GymPricing()
+        );
+        
+        HostelFeeCalculator calc = new HostelFeeCalculator(new FakeBookingRepo(), components);
         calc.process(req);
     }
 }

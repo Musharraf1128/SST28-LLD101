@@ -1,4 +1,8 @@
-public class FakeBookingRepo {
+interface BookingRepository {
+    void save(String id, BookingRequest req, Money monthly, Money deposit);
+}
+
+public class FakeBookingRepo implements BookingRepository {
     public void save(String id, BookingRequest req, Money monthly, Money deposit) {
         System.out.println("Saved booking: " + id);
     }
