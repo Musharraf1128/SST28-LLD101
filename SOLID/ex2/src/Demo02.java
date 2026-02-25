@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Demo02{
     public static void main(String[] args) {
         System.out.println("=== Cafeteria Billing ===");
 
@@ -9,7 +9,7 @@ public class Main {
         TaxRule taxRule = new DefaultTaxRule();
         DiscountRule discountRule = new DefaultDiscountRule();
         InvoiceFormatter formatter = new DefaultInvoiceFormatter();
-        
+
         CafeteriaSystem sys = new CafeteriaSystem(store, pricing, taxRule, discountRule, formatter);
         sys.addToMenu(new MenuItem("M1", "Veg Thali", 80.00));
         sys.addToMenu(new MenuItem("C1", "Coffee", 30.00));

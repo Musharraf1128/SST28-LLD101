@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Main {
+public class Demo04{
     public static void main(String[] args) {
         System.out.println("=== Hostel Fee Calculator ===");
         BookingRequest req = new BookingRequest(LegacyRoomTypes.DOUBLE, List.of(AddOn.LAUNDRY, AddOn.MESS));
-        
+
         List<PricingComponent> components = List.of(
             new SingleRoomPricing(),
             new DoubleRoomPricing(),
@@ -14,7 +14,7 @@ public class Main {
             new LaundryPricing(),
             new GymPricing()
         );
-        
+
         HostelFeeCalculator calc = new HostelFeeCalculator(new FakeBookingRepo(), components);
         calc.process(req);
     }
